@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-rc.1",
+    "i": "^0.3.6",
     "material-design-icons-iconfont": "^3.0.3",
+    "npm": "^6.4.1",
     "roboto-fontface": "*",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
