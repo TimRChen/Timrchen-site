@@ -1,7 +1,6 @@
 <template>
   <v-footer
     dark
-    fixed
     height="auto"
   >
     <v-card
@@ -10,7 +9,6 @@
       tile
     >
       <v-card-title>
-        <strong class="subheading">Get connected with me on social networks!</strong>
         <v-spacer></v-spacer>
         <v-btn
           v-for="icon in icons"
@@ -22,8 +20,15 @@
           <v-icon size="24px">{{ icon }}</v-icon>
         </v-btn>
       </v-card-title>
+
+      <div class="link-group">
+        <span class="txt-box">
+          <a href="http://www.miitbeian.gov.cn" target="_blank">京ICP备17058358号-1</a>
+        </span>
+      </div>
+
       <v-card-actions class="justify-center">
-        Copyright &copy;&nbsp;<strong>2018 享受创造的快乐.</strong>
+        Copyright &copy;&nbsp;<strong>2018. 提姆瑞辰</strong>
       </v-card-actions>
     </v-card>
   </v-footer>
@@ -38,9 +43,19 @@ export default class Body extends Vue {
   icons = [
     'fab fa-facebook',
     'fab fa-twitter',
-    'fab fa-google-plus',
-    'fab fa-linkedin',
-    'fab fa-instagram'
+    'fab fa-linkedin'
   ]
 }
 </script>
+
+<style lang="stylus" scoped>
+.link-group
+  width 100%
+  text-align center
+  .txt-box
+    font-size 12px
+    a
+      text-decoration none
+      color #888
+</style>
+

@@ -22,3 +22,9 @@ import Footer from '@/components/footer.vue'
 })
 export default class Home extends Vue {}
 </script>
+
+<style lang="stylus" scoped>
+.home
+  background-image url('../assets/bg.gif')
+  background-repeat repeat
+</style>
