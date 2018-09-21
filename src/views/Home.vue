@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <Header/>
-    <SBody/>
+    <transition name="component-fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
     <Footer/>
   </div>
 </template>
@@ -10,13 +12,11 @@
 /* eslint-disable */
 import { Component, Vue } from 'vue-property-decorator'
 import Header from '@/components/header.vue'
-import SBody from '@/components/body.vue'
 import Footer from '@/components/footer.vue'
 
 @Component({
   components: {
     Header,
-    SBody,
     Footer
   }
 })
@@ -27,4 +27,10 @@ export default class Home extends Vue {}
 .home
   background-image url('../assets/bg.gif')
   background-repeat repeat
+  /* Vue 多组件切换过渡动画 */
+  .component-fade-enter-active, .component-fade-leave-active
+    transition opacity 0.2s ease-in-out
+  .component-fade-enter, .component-fade-leave-to
+    opacity 0
+
 </style>

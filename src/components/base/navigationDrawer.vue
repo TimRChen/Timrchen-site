@@ -1,8 +1,11 @@
 <template>
   <v-navigation-drawer
-    v-model="drawer"
-    fixed
+    v-model="computedDrawer"
     temporary
+    width="200"
+    absolute
+    dark
+    app
   >
     <v-list class="pa-1">
       <v-list-tile avatar>
@@ -22,7 +25,7 @@
       <v-list-tile
         v-for="item in items"
         :key="item.title"
-        @click="emitDrawer(false)"
+        @click="routerToTarget(item.title)"
       >
         <v-list-tile-action>
           <v-icon>{{ item.icon }}</v-icon>
@@ -43,14 +46,22 @@ import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
 @Component
 export default class NavigationDrawer extends Vue {
   @Prop(Boolean) drawer!: boolean
-  items = [
+  componentDrawer: boolean = this.drawer
+  items: Array<Object> = [
     { title: 'Home', icon: 'dashboard' },
     { title: 'About', icon: 'question_answer' }
   ]
 
-  @Emit('update:drawerFeedback')
-  emitDrawer (emitResult: boolean) {
-    this.drawer = emitResult
+  set computedDrawer (result: boolean) {
+    this.componentDrawer = result
   }
+
+  get computedDrawer () {
+    this.componentDrawer = this.drawer
+    return this.componentDrawer
+  }
+
+  @Emit('update:drawerFeedback')
+  routerToTarget (result: string) {}
 }
 </script>

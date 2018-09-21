@@ -1,5 +1,5 @@
 <template>
-  <header class="header-container">
+  <header class="header-container" @click="drawer = !drawer">
     <v-toolbar
       fixed
       dense
@@ -22,7 +22,7 @@
       ></v-toolbar-side-icon>
     </v-toolbar>
 
-    <NavigationDrawer :drawer="drawer" :drawerFeedback.sync="drawer"></NavigationDrawer>
+    <NavigationDrawer :drawer="drawer" :drawerFeedback.sync="drawerFeedback"></NavigationDrawer>
   </header>
 </template>
 
@@ -35,8 +35,8 @@ import NavigationDrawer from '@/components/base/navigationDrawer.vue'
   components: { NavigationDrawer }
 })
 export default class Body extends Vue {
-  @Prop(Boolean) drawerFeedback!: boolean
-  drawer = false
+  drawerFeedback: string = ''
+  drawer: boolean = false
 }
 </script>
 
